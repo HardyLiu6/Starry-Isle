@@ -1,0 +1,41 @@
+/**
+ * 免责声明——与 README、（未来的）项目主页三处同文（ADR-0004 / 研 04 §六模板）。
+ * 修改必须三处同步。本文件在禁语检查中按"免责声明豁免文件"处理
+ * （否定性法律声明必须点名医疗用语才能撇清，见 scripts/check-banned-words.mjs）。
+ */
+export function Disclaimer() {
+  return (
+    <div className="box" role="note">
+      <strong>重要声明</strong>
+      <ul>
+        <li>
+          星屿（Starry Isle）是一款公益、免费、开源的儿童互动训练软件，仅供学习、练习与家庭亲子互动使用。
+        </li>
+        <li>
+          本软件<strong>不是医疗器械</strong>，未经任何药品监督管理部门注册或审批；不用于任何疾病（包括孤独症谱系障碍）的
+          <strong>诊断、治疗、预防、监护或缓解</strong>，不构成医疗建议。
+        </li>
+        <li>
+          本软件<strong>不能替代</strong>专业医疗诊断、康复干预或特殊教育服务。关于儿童发育与健康的任何问题，请咨询医师或专业干预机构。
+        </li>
+        <li>
+          软件内的练习内容参考了公开的教育与发展心理学资料，但<strong>不对任何使用效果作出承诺或保证</strong>；效果因人而异。
+        </li>
+        <li>
+          建议儿童在<strong>监护人陪同</strong>下使用本软件，并遵循适度使用原则（建议单次不超过 20 分钟）。
+        </li>
+        <li>
+          本软件按"现状（AS IS）"提供，按 MIT 许可证授权，在法律允许的最大范围内不提供任何明示或默示的担保；使用本软件的风险由使用者自行承担。
+        </li>
+      </ul>
+      <p className="sub">
+        This software is <strong>not a medical device</strong> and is not intended to diagnose,
+        treat, cure, prevent, or mitigate any disease or condition, including autism spectrum
+        disorder. It does not provide medical advice and is not a substitute for professional
+        evaluation, therapy, or special education services. All content is for educational and
+        informational purposes only. Use at your own risk; provided "AS IS" without warranty of any
+        kind. Children should use this software under the supervision of a parent or guardian.
+      </p>
+    </div>
+  );
+}

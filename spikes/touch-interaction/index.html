@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>星屿 spike：触摸交互验证</title>
+<style>
+  /* 验证点 1：系统字体栈，零外部请求 */
+  :root {
+    --bg-deep: #0b1e3d;
+    --bg-mid: #16305c;
+    --starlight: #ffd966;
+    --card-bg: #f7f4ec;
+    --text-on-dark: #e8ecf5;
+    --text-on-card: #2b2b2b;
+    --ok: #7fc8a9;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+    color: var(--text-on-dark);
+    min-height: 100vh;
+    /* 验证点 2：禁双击缩放，消除点击延迟 */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.25rem; font-weight: 600; }
+  p.hint { font-size: .95rem; opacity: .85; line-height: 1.6; }
+
+  /* 验证点 3：大触摸目标（≥ 96px），2×2 网格 */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card {
+    min-height: 140px;
+    border: none;
+    border-radius: 24px;
+    background: var(--card-bg);
+    color: var(--text-on-card);
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0,0,0,.25);
+    transition: transform 120ms ease-out, box-shadow 120ms ease-out, outline-color 120ms;
+    outline: 4px solid transparent;
+  }
+  .card:active { transform: scale(.96); box-shadow: 0 2px 0 rgba(0,0,0,.25); }
+  .card.selected {
+    outline-color: var(--starlight);
+    animation: glow 600ms ease-out;
+  }
+  .card.dimmed { opacity: .45; }
+  @keyframes glow {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 217, 102, .8); }
+    100% { box-shadow: 0 0 0 24px rgba(255, 217, 102, 0); }
+  }
+
+  /* 验证点 4：温和的星星飞入动画（transform/opacity 合成层动画，不触发重排） */
+  .star-slot-row { display: flex; gap: 8px; justify-content: center; margin: 8px 0 0; }
+  .star-slot { width: 28px; height: 28px; opacity: .25; transition: opacity 300ms; }
+  .star-slot.lit { opacity: 1; animation: pop 400ms ease-out; }
+  @keyframes pop { 0% { transform: scale(.4); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+  /* 验证点 5：respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .card, .card.selected, .star-slot.lit { animation: none !important; transition: none !important; }
+  }
+
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 16px 0; }
+  button.ctl {
+    min-height: 56px; padding: 0 20px;
+    border-radius: 16px; border: 2px solid var(--text-on-dark);
+    background: transparent; color: var(--text-on-dark);
+    font-size: 1rem; cursor: pointer;
+  }
+  #log {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: .8rem; background: rgba(0,0,0,.35);
+    border-radius: 12px; padding: 12px; min-height: 120px;
+    white-space: pre-wrap; word-break: break-all;
+  }
+  .checklist { font-size: .9rem; line-height: 1.8; opacity: .9; }
+</style>
+</head>
+<body>
+<main>
+  <h1>星屿 spike：触摸交互验证（DOM + CSS 方案）</h1>
+  <p class="hint">目的：验证不用游戏引擎、纯 DOM + CSS 动画能否满足"认表情"玩法的触摸体验。请在家用平板/手机浏览器打开本页，逐项体验并看底部清单。</p>
+
+  <div class="star-slot-row" id="stars"></div>
+
+  <div class="grid" id="grid">
+    <button class="card" data-k="a">😄</button>
+    <button class="card" data-k="b">😢</button>
+    <button class="card" data-k="c">😡</button>
+    <button class="card" data-k="d">😨</button>
+  </div>
+
+  <div class="row">
+    <button class="ctl" id="sound">🔇 声音：关</button>
+    <button class="ctl" id="reset">重置</button>
+  </div>
+
+  <div id="log">日志：</div>
+
+  <h1>真机检查清单（平板 + 手机各过一遍）</h1>
+  <ul class="checklist">
+    <li>[ ] 点卡片：按下有即时缩放反馈，无可感知延迟（&lt;100ms 观感）</li>
+    <li>[ ] 快速连点、双指同点：无双击放大、无页面缩放/滚动窜动</li>
+    <li>[ ] 选中动画（光晕扩散）流畅不掉帧；星星逐颗点亮</li>
+    <li>[ ] 开声音后点卡片有温和提示音（iOS 需先点过"声音"按钮一次）</li>
+    <li>[ ] 系统开启"减弱动态效果"后，动画自动消失、功能不受影响</li>
+    <li>[ ] 横竖屏切换布局不破；日志区显示的 pointerdown→响应耗时 &lt; 50ms</li>
+  </ul>
+</main>
+<script>
+  // 验证点 6：Web Audio 合成温和提示音（零音频素材、零请求）；iOS 需用户手势解锁
+  let audioCtx = null, soundOn = false;
+  const $ = (s) => document.querySelector(s);
+  const log = (m) => { $('#log').textContent += '\n' + m; };
+
+  function chime() {
+    if (!soundOn) return;
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const t = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(660, t);
+    osc.frequency.exponentialRampToValueAtTime(880, t + 0.12);
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(0.12, t + 0.02); // 音量克制（感官友好）
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t); osc.stop(t + 0.4);
+  }
+
+  // 星槽
+  const starsEl = $('#stars');
+  for (let i = 0; i < 6; i++) {
+    starsEl.insertAdjacentHTML('beforeend',
+      '<svg class="star-slot" viewBox="0 0 24 24" fill="#ffd966"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.6L12 16.9 6.1 20.2l1.3-6.6L2.5 9l6.6-.8z"/></svg>');
+  }
+  let lit = 0;
+
+  // 交互延迟测量：pointerdown → rAF 渲染完成
+  let downTs = 0;
+  document.addEventListener('pointerdown', () => { downTs = performance.now(); }, true);
+
+  $('#grid').addEventListener('click', (e) => {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('selected', 'dimmed'));
+    card.classList.add('selected');
+    document.querySelectorAll('.card').forEach(c => { if (c !== card) c.classList.add('dimmed'); });
+    if (lit < 6) starsEl.children[lit++].classList.add('lit');
+    chime();
+    requestAnimationFrame(() => {
+      const dt = (performance.now() - downTs).toFixed(1);
+      log(`点选 ${card.dataset.k} · pointerdown→渲染 ${dt}ms · ${new Date().toLocaleTimeString()}`);
+    });
+  });
+
+  $('#sound').addEventListener('click', function () {
+    soundOn = !soundOn;
+    this.textContent = soundOn ? '🔊 声音：开' : '🔇 声音：关';
+    if (soundOn) chime(); // 首次点击同时解锁 AudioContext
+  });
+
+  $('#reset').addEventListener('click', () => {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('selected', 'dimmed'));
+    document.querySelectorAll('.star-slot').forEach(s => s.classList.remove('lit'));
+    lit = 0;
+    log('重置');
+  });
+
+  log('页面就绪 · UA: ' + navigator.userAgent.slice(0, 80));
+</script>
+</body>
+</html>
