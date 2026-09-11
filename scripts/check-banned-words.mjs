@@ -2,11 +2,15 @@
  * 对外文案禁语检查（依据 docs/research/04-合规红线清单.md 措辞清单 + ADR-0004）。
  * 进 `npm run check` 与 CI——README 免责声明就位并过禁语自查是一期验收项。
  *
- * 范围：对外可见的传播文案（README、应用 UI 与源码、index.html、CONTRIBUTING）。
- * 不扫内部调研/决策文档（docs/、CONTEXT.md、spikes/）——它们必须引用法规原文与禁语本身。
+ * 范围：对外可见的传播文案（README、应用 UI 与源码、index.html、CONTRIBUTING、devlog）。
+ * 不扫内部调研/决策文档（docs/ 除 devlog、CONTEXT.md、spikes/）——它们必须引用法规原文与禁语本身。
+ * docs/devlog/ 是对外传播文案，故显式纳入（ADR-0006 决定 3）。
+ *
+ * 扫不到的对外文案面（GitHub About/topics/Release 说明/社交预览图/未来商店文案）
+ * 见 CONTRIBUTING"仓库外对外文案清单"，改动前人工过禁语清单（ADR-0006 决定 11）。
  *
  * 豁免机制：
- *  1. src/components/Disclaimer.tsx 整文件豁免——否定性法律声明必须点名医疗用语才能撇清；
+ *  1. 免责声明的唯一来源与渲染组件整文件豁免——否定性法律声明必须点名医疗用语才能撇清；
  *  2. README 中 <!-- disclaimer:start --> … <!-- disclaimer:end --> 块豁免（三处同文的模板）；
  *  3. 行内含 `banned-ok` 标记的行豁免（用于"对外不自称XX"这类元规则表述）。
  */
@@ -30,8 +34,22 @@ const BANNED = [
   '游戏',
 ];
 
-const SCAN = ['README.md', 'CONTRIBUTING.md', 'index.html', 'src', 'public'];
-const EXEMPT_FILES = [join('src', 'components', 'Disclaimer.tsx')];
+const SCAN = [
+  'README.md',
+  'CONTRIBUTING.md',
+  'CODE_OF_CONDUCT.md',
+  'SECURITY.md',
+  'index.html',
+  'src',
+  'public',
+  join('docs', 'devlog'),
+  join('.github', 'ISSUE_TEMPLATE'),
+  join('.github', 'pull_request_template.md'),
+];
+const EXEMPT_FILES = [
+  join('src', 'disclaimer.json'),
+  join('src', 'components', 'Disclaimer.tsx'),
+];
 const EXTS = new Set(['.md', '.html', '.ts', '.tsx', '.css', '.mjs', '.json', '.svg', '.txt']);
 
 function* walk(p) {

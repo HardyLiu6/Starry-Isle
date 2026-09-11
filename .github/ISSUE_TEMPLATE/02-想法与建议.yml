@@ -1,0 +1,39 @@
+name: 想法与建议
+description: 希望增加什么、哪里可以更好用——家长、专业人士、开发者都欢迎
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        你的使用场景对这个项目很重要，尤其是来自家庭与一线工作者的真实经验。
+
+        ⚠️ 这里是公开页面，**请不要写入孩子的姓名、照片或其他可识别个人信息**；描述孩子的情况时用"我家孩子"即可。
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你希望有什么
+      description: 想要的功能、想改的地方，或者只是"这里用着别扭"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 什么情况下遇到的
+      description: 具体场景比抽象需求有用得多——什么时候、和谁一起、想达到什么
+      placeholder: 例如：孩子每次玩完就走，我想知道刚才练了什么、在家还能怎么接着练。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: 你的身份（可选）
+      description: 只用于理解需求背景，随时可以不填
+      options:
+        - 不想说
+        - 家长或其他家庭成员
+        - 特教老师 / 康复师 / 医生等专业人士 # banned-ok：填表人的职业名称，非对产品的宣称
+        - 开发者 / 设计师
+        - 其他

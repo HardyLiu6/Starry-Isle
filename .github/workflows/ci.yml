@@ -1,5 +1,9 @@
 name: CI
 
+# 供应链规矩（ADR-0006 决定 4）：所有 action 一律钉全长 commit SHA，注释保留版本号。
+# 依据 tj-actions 事件（CVE-2025-30066）——可变 tag 可被整体重指到恶意提交，
+# 而部署链路的完整性是"零收集可查证"承诺的上游。升级走每期收口人工核对。
+
 on:
   push:
     branches: [main]
@@ -8,29 +12,36 @@ on:
 permissions:
   contents: read
 
+# 防两次快速推送导致 Pages 部署重叠；进行中的构建不取消（PR 检查仍各自跑完）
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   check-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run check # 禁语 + tsc + vitest
+      - run: npm run check # 禁语 + 免责声明同文校验 + tsc + vitest
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         with:
           path: dist
 
   deploy-pages:
     # GitHub Pages 预览部署（境外静态托管，无备案义务——研 04 §B）。
-    # 需在仓库 Settings → Pages 将 Source 设为 "GitHub Actions" 后生效。
+    # 一二期为"软上线"：URL 可访问但不对外宣传；T12 分发定案后改为打 tag 才发布（ADR-0006 决定 1）。
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: check-build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       pages: write
       id-token: write
@@ -39,4 +50,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

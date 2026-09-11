@@ -10,7 +10,11 @@
     "preview": "vite preview",
     "test": "vitest run",
     "check:words": "node scripts/check-banned-words.mjs",
-    "check": "npm run check:words && tsc --noEmit && vitest run"
+    "check:disclaimer": "node scripts/check-disclaimer.mjs",
+    "check": "npm run check:words && npm run check:disclaimer && tsc --noEmit && vitest run"
+  },
+  "engines": {
+    "node": ">=20.19"
   },
   "dependencies": {
     "react": "^19.0.0",

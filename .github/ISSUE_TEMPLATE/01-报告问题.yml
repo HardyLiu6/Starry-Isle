@@ -1,0 +1,57 @@
+name: 报告问题
+description: 用不了、显示不对、声音或动画有问题——都欢迎告诉我们
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你花时间反馈。几句话说清就行，不用讲技术术语。
+
+        ⚠️ **请不要上传孩子的照片、姓名、学校或其他个人信息**——这里是公开页面，任何人都能看到。截图前请先遮住这类内容。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么
+      description: 你当时在做什么？看到了什么？期待的是什么？
+      placeholder: 例如：点"开始"以后画面一直是黑的，什么都没出来。
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: 用的什么设备
+      description: 手机/平板/电脑的型号，知道系统版本更好
+      placeholder: 例如：iPad 第 9 代，iPadOS 17；或 小米平板 6
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: 用的什么浏览器
+      options:
+        - Safari（苹果设备自带）
+        - Chrome
+        - Edge
+        - 微信内置浏览器
+        - 其他/不清楚
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 怎么重现（可选）
+      description: 如果每次都能遇到，请写下步骤，这能帮我们快很多
+      placeholder: |
+        1. 打开页面
+        2. 点"开始练习"
+        3. 答对第一题之后……
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 截图（可选）
+      description: 直接把图片拖进这个框即可。再次提醒：请勿包含孩子的照片或个人信息。

@@ -2,6 +2,8 @@
 
 星屿的代码与素材分开授权：代码按 MIT（见 `LICENSE`），素材按下列各来源的原始许可。新增素材必须同步登记本文件（准入规则见 `docs/assets/素材授权核查清单.md`）。
 
+**当前状态：本仓库不含任何 NC（非商业）素材**，全部素材均可商业再分发。若将来引入 NC 素材（如 ARASAAC），会登记在本文件末尾的"NC 素材"小节，并同步在 README 许可节声明整体分发的商用限制。
+
 ## OpenMoji
 
 - 文件：`public/assets/emotions/openmoji/*.svg`、`public/assets/scenes/openmoji/*.svg`

@@ -1,0 +1,12 @@
+# 保留空白 issue 入口：不给不会填表的家长设门槛（ADR-0006 决定 14）
+blank_issues_enabled: true
+contact_links:
+  - name: 参与贡献前请先读
+    url: https://github.com/HardyLiu6/Starry-Isle/blob/main/CONTRIBUTING.md
+    about: 三条不能妥协的红线、上手路径与 PR 检查单
+  - name: 安全问题请走私密上报
+    url: https://github.com/HardyLiu6/Starry-Isle/security/advisories/new
+    about: 依赖投毒、产物外连请求等安全问题，请不要发公开 issue
+  - name: 这个项目是什么、不是什么
+    url: https://github.com/HardyLiu6/Starry-Isle#重要声明--disclaimer
+    about: 免责声明——本软件不是医疗器械，不能替代专业服务 # banned-ok：否定式声明指引
