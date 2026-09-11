@@ -4,7 +4,9 @@
 
 ## 如何上报
 
-**首选：GitHub 私密漏洞上报。** 到本仓库的 **Security → Report a vulnerability** 提交，只有维护者可见，你不需要知道任何邮箱地址。
+**首选：GitHub 私密漏洞上报。** 到本仓库的 [Security → Report a vulnerability](https://github.com/HardyLiu6/Starry-Isle/security/advisories/new) 提交，只有维护者可见，你不需要知道任何邮箱地址。
+
+**没有 GitHub 账号，或上报渠道不可用时**：发邮件到 **starry-isle@outlook.com**，标题请带上 `[security]`。
 
 请**不要**用公开 issue 报告安全问题——公开后攻击者与使用中的家庭会同时看到。
 
