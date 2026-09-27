@@ -11,7 +11,10 @@
     "test": "vitest run",
     "check:words": "node scripts/check-banned-words.mjs",
     "check:disclaimer": "node scripts/check-disclaimer.mjs",
-    "check": "npm run check:words && npm run check:disclaimer && tsc --noEmit && vitest run"
+    "check:assets": "node scripts/check-assets.mjs",
+    "assets:credits": "node scripts/check-assets.mjs --write-credits",
+    "assets:fetch": "node scripts/fetch-assets.mjs",
+    "check": "npm run check:words && npm run check:disclaimer && npm run check:assets && tsc --noEmit && vitest run"
   },
   "engines": {
     "node": ">=20.19"

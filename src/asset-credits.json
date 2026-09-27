@@ -1,0 +1,52 @@
+{
+  "note": "由 scripts/check-assets.mjs 依据 src/asset-manifest.json 生成，请勿手改；供应用内\"素材署名\"一节使用。",
+  "hasNc": false,
+  "hasAi": false,
+  "sources": [
+    {
+      "id": "openmoji",
+      "name": "OpenMoji",
+      "attribution": "All emojis designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0",
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "title": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "count": 14,
+      "version": "17.0.0",
+      "modified": false,
+      "ai": false
+    },
+    {
+      "id": "twemoji",
+      "name": "Twemoji",
+      "attribution": "Graphics licensed under CC-BY 4.0",
+      "copyright": "Copyright (c) 2022–present Jason Sofonia & Justine De Caires; Copyright (c) 2014–2021 Twitter",
+      "license": {
+        "id": "CC-BY-4.0",
+        "title": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "count": 10,
+      "version": "v17.0.3",
+      "modified": false,
+      "ai": false
+    },
+    {
+      "id": "starry-isle",
+      "name": "星屿自制素材",
+      "attribution": "星屿项目贡献者",
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "title": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "count": 2,
+      "titles": [
+        "星灵",
+        "海岛夜景"
+      ],
+      "ai": false
+    }
+  ]
+}

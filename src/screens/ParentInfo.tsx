@@ -1,3 +1,4 @@
+import { AssetCredits } from '../components/AssetCredits';
 import { Disclaimer } from '../components/Disclaimer';
 
 /** "给家长"页：随时可回看的定位说明、共玩指南与免责声明 */
@@ -41,6 +42,9 @@ export function ParentInfo({ onBack }: { onBack: () => void }) {
         星屿完全在本设备运行：无账号、无广告、无第三方统计，不收集也不上传任何数据。
         本设备只保存两项设置（是否看过本说明、声音开关）。代码开源，任何人都可以查证。
       </p>
+
+      <h2>素材署名</h2>
+      <AssetCredits />
 
       <h2>重要声明</h2>
       <Disclaimer />

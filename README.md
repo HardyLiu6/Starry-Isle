@@ -42,7 +42,7 @@ npm run build # 构建纯静态产物（dist/，任意静态目录可运行）
 ## 许可
 
 - **代码**：[MIT](LICENSE)
-- **素材**：与代码分开授权，逐来源署名见 [CREDITS.md](CREDITS.md)（OpenMoji CC BY-SA 4.0、Twemoji CC BY 4.0、自制素材 CC BY-SA 4.0）。当前全部素材可商业再分发；若将来引入 NC（非商业）素材，会在 CREDITS 与此处明确标注。
+- **素材**：与代码分开授权，逐来源署名见 [CREDITS.md](CREDITS.md)（OpenMoji CC BY-SA 4.0、Twemoji CC BY 4.0、非 AI 生成的自制素材 CC BY-SA 4.0、AI 生成素材 CC0 1.0）。每个素材文件的来源、版本、许可与哈希登记在溯源清单 `src/asset-manifest.json`，由 `npm run check` 机器校验；应用内"给家长"页也有同源的素材署名。当前全部素材可商业再分发，也不含 AI 生成的素材；若将来引入 NC（非商业）素材或 AI 生成素材，会在 CREDITS 与此处明确标注。
 
 其他：[安全策略](SECURITY.md)（漏洞请私密上报）· [行为准则](CODE_OF_CONDUCT.md)
 

@@ -1,3 +1,6 @@
+/**
+ * 星形是界面代码，不是素材：亮灭是交互状态，随代码按 MIT（ADR-0007 决定 7）。
+ */
 function Star({ lit }: { lit: boolean }) {
   return (
     <svg viewBox="0 0 24 24" fill="#ffd966" className={lit ? 'lit' : ''} aria-hidden="true">

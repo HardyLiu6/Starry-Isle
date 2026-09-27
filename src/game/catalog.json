@@ -1,0 +1,212 @@
+{
+  "catalogVersion": 1,
+  "note": "素材语义表（唯一来源）：情绪、强度、面部线索与验证结果。溯源信息在 src/asset-manifest.json，按 path 对接（catalog 的 path 相对 public/）。依据 ADR-0007 决定 5、ADR-0008 决定 8。",
+  "cards": [
+    {
+      "path": "assets/emotions/openmoji/1F604.svg",
+      "emotion": "happy",
+      "intensity": "high",
+      "cues": "眼睛弯弯，嘴巴张大在笑",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f604.svg",
+      "emotion": "happy",
+      "intensity": "high",
+      "cues": "眼睛弯弯，嘴巴张大在笑",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F60A.svg",
+      "emotion": "happy",
+      "intensity": "mid",
+      "cues": "微笑着，脸颊红红的",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f60a.svg",
+      "emotion": "happy",
+      "intensity": "mid",
+      "cues": "微笑着，脸颊红红的",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F642.svg",
+      "emotion": "happy",
+      "intensity": "low",
+      "cues": "嘴角轻轻向上",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f642.svg",
+      "emotion": "happy",
+      "intensity": "low",
+      "cues": "嘴角轻轻向上",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F62D.svg",
+      "emotion": "sad",
+      "intensity": "high",
+      "cues": "张着嘴大哭，眼泪很多",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f62d.svg",
+      "emotion": "sad",
+      "intensity": "high",
+      "cues": "张着嘴大哭，眼泪很多",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F622.svg",
+      "emotion": "sad",
+      "intensity": "mid",
+      "cues": "流下了一滴眼泪",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f622.svg",
+      "emotion": "sad",
+      "intensity": "mid",
+      "cues": "流下了一滴眼泪",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F641.svg",
+      "emotion": "sad",
+      "intensity": "low",
+      "cues": "嘴角向下，垂着眼",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f641.svg",
+      "emotion": "sad",
+      "intensity": "low",
+      "cues": "嘴角向下，垂着眼",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F621.svg",
+      "emotion": "angry",
+      "intensity": "high",
+      "cues": "脸涨得通红，眉毛竖起来",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f621.svg",
+      "emotion": "angry",
+      "intensity": "high",
+      "cues": "脸涨得通红，眉毛竖起来",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F620.svg",
+      "emotion": "angry",
+      "intensity": "mid",
+      "cues": "皱着眉头，抿紧嘴巴",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f620.svg",
+      "emotion": "angry",
+      "intensity": "mid",
+      "cues": "皱着眉头，抿紧嘴巴",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F631.svg",
+      "emotion": "scared",
+      "intensity": "high",
+      "cues": "睁大眼睛，张大嘴巴喊出声",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f631.svg",
+      "emotion": "scared",
+      "intensity": "high",
+      "cues": "睁大眼睛，张大嘴巴喊出声",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/openmoji/1F628.svg",
+      "emotion": "scared",
+      "intensity": "mid",
+      "cues": "睁大眼睛，眉毛拧在一起",
+      "validation": {
+        "status": "pending"
+      }
+    },
+    {
+      "path": "assets/emotions/twemoji/1f628.svg",
+      "emotion": "scared",
+      "intensity": "mid",
+      "cues": "睁大眼睛，眉毛拧在一起",
+      "validation": {
+        "status": "pending"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "path": "assets/scenes/openmoji/1F381.svg",
+      "common": "happy",
+      "alt": "一份包着丝带的礼物",
+      "text": "过生日，收到了最想要的礼物。会是什么心情？"
+    },
+    {
+      "path": "assets/scenes/openmoji/1F366.svg",
+      "common": "sad",
+      "alt": "一支甜筒冰淇淋",
+      "text": "最喜欢的冰淇淋，掉在了地上。会是什么心情？"
+    },
+    {
+      "path": "assets/scenes/openmoji/26C8.svg",
+      "common": "scared",
+      "alt": "打着闪电的乌云",
+      "text": "打雷了，轰隆隆，声音好大。会是什么心情？"
+    },
+    {
+      "path": "assets/scenes/openmoji/1F9F1.svg",
+      "common": "angry",
+      "alt": "搭起来的积木",
+      "text": "认真搭好的积木，被撞倒了。会是什么心情？"
+    }
+  ]
+}

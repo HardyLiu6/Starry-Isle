@@ -1,4 +1,9 @@
 * text=auto eol=lf
 *.png binary
 *.jpg binary
+*.webp binary
 *.woff2 binary
+
+# 素材按字节原样保存，不做换行符转换：溯源校验比对的是上游原始字节，
+# 上游若是 CRLF 文件，默认的 eol=lf 会悄悄改掉字节、让哈希对不上（ADR-0007 决定 6）
+public/assets/** -text

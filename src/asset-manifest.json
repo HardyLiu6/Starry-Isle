@@ -1,0 +1,311 @@
+{
+  "manifestVersion": 1,
+  "note": "素材溯源清单（唯一来源）。改素材先改这里，再运行 npm run assets:credits 重新生成 CREDITS.md 与应用内署名数据；不要手改生成物。依据 ADR-0007 / ADR-0008。",
+  "licenses": {
+    "CC-BY-SA-4.0": {
+      "title": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "CC-BY-4.0": {
+      "title": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "CC0-1.0": {
+      "title": "CC0 1.0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "sources": {
+    "openmoji": {
+      "name": "OpenMoji",
+      "homepage": "https://openmoji.org",
+      "repo": "hfg-gmuend/openmoji",
+      "ref": "17.0.0",
+      "commit": "f9fc506a3f913be9897ab0181d611d4c910a4104",
+      "fetch": "https://raw.githubusercontent.com/hfg-gmuend/openmoji/{commit}/{upstreamPath}",
+      "license": "CC-BY-SA-4.0",
+      "licenseEvidence": "https://github.com/hfg-gmuend/openmoji/blob/f9fc506a3f913be9897ab0181d611d4c910a4104/LICENSE.txt",
+      "attribution": "All emojis designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0",
+      "attributionEvidence": "https://github.com/hfg-gmuend/openmoji/blob/f9fc506a3f913be9897ab0181d611d4c910a4104/README.md",
+      "dirs": [
+        "emotions/openmoji",
+        "scenes/openmoji"
+      ]
+    },
+    "twemoji": {
+      "name": "Twemoji",
+      "homepage": "https://github.com/jdecked/twemoji",
+      "repo": "jdecked/twemoji",
+      "ref": "v17.0.3",
+      "commit": "b6b55fef1e8636b540a6d016a4729ca8cdf2e60b",
+      "fetch": "https://raw.githubusercontent.com/jdecked/twemoji/{commit}/{upstreamPath}",
+      "license": "CC-BY-4.0",
+      "licenseEvidence": "https://github.com/jdecked/twemoji/blob/b6b55fef1e8636b540a6d016a4729ca8cdf2e60b/LICENSE-GRAPHICS",
+      "attribution": "Graphics licensed under CC-BY 4.0",
+      "copyright": "Copyright (c) 2022–present Jason Sofonia & Justine De Caires; Copyright (c) 2014–2021 Twitter",
+      "copyrightEvidence": "https://github.com/jdecked/twemoji/blob/b6b55fef1e8636b540a6d016a4729ca8cdf2e60b/LICENSE",
+      "attributionEvidence": "https://github.com/jdecked/twemoji/blob/b6b55fef1e8636b540a6d016a4729ca8cdf2e60b/README.md",
+      "dirs": [
+        "emotions/twemoji"
+      ]
+    },
+    "starry-isle": {
+      "name": "星屿自制素材",
+      "homepage": "https://github.com/HardyLiu6/Starry-Isle",
+      "license": "CC-BY-SA-4.0",
+      "attribution": "星屿项目贡献者",
+      "dirs": [
+        "original"
+      ]
+    },
+    "starry-isle-ai": {
+      "name": "星屿 AI 生成素材",
+      "homepage": "https://github.com/HardyLiu6/Starry-Isle",
+      "license": "CC0-1.0",
+      "attribution": "星屿项目贡献者（AI 生成，见清单内的生成记录）",
+      "dirs": [
+        "ai"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "path": "public/assets/emotions/openmoji/1F604.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F604.svg",
+      "sha256": "e736c2d0cc0c72781aa4c5f4adf42f74fe99105a14713e29eeb7e1f35343784f",
+      "modifications": [],
+      "upstreamSha256": "e736c2d0cc0c72781aa4c5f4adf42f74fe99105a14713e29eeb7e1f35343784f"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F60A.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F60A.svg",
+      "sha256": "e2ae6cedba1d340fae93935618164cb2909cbf1e041484fc42005728b94f90d9",
+      "modifications": [],
+      "upstreamSha256": "e2ae6cedba1d340fae93935618164cb2909cbf1e041484fc42005728b94f90d9"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F620.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F620.svg",
+      "sha256": "bd03f2ca15515f912cb40d96438290328eae46e9380f57e74a28d9f9d14e5c16",
+      "modifications": [],
+      "upstreamSha256": "bd03f2ca15515f912cb40d96438290328eae46e9380f57e74a28d9f9d14e5c16"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F621.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F621.svg",
+      "sha256": "c55c039c666267fdbc4e0889c10521f9ca5553aa4565ee1ab37ad4e92e4b8715",
+      "modifications": [],
+      "upstreamSha256": "c55c039c666267fdbc4e0889c10521f9ca5553aa4565ee1ab37ad4e92e4b8715"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F622.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F622.svg",
+      "sha256": "7539906580ea9bf17ba129522842262dd8ad5c2d367d517eb4f96544a3c02320",
+      "modifications": [],
+      "upstreamSha256": "7539906580ea9bf17ba129522842262dd8ad5c2d367d517eb4f96544a3c02320"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F628.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F628.svg",
+      "sha256": "de53fa035dc058b488bc051a210d9efff361ee3587a3a3d79f62310deeca839f",
+      "modifications": [],
+      "upstreamSha256": "de53fa035dc058b488bc051a210d9efff361ee3587a3a3d79f62310deeca839f"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F62D.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F62D.svg",
+      "sha256": "3fe2965c4152511cf92a19efc5ea7c111abf40dd7776315e1fc9a3b759b23db0",
+      "modifications": [],
+      "upstreamSha256": "3fe2965c4152511cf92a19efc5ea7c111abf40dd7776315e1fc9a3b759b23db0"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F631.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F631.svg",
+      "sha256": "28018215e9cc0dd084d49b143d2dfb6bbede179eeb44f2393a6f8f95cc903703",
+      "modifications": [],
+      "upstreamSha256": "28018215e9cc0dd084d49b143d2dfb6bbede179eeb44f2393a6f8f95cc903703"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F641.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F641.svg",
+      "sha256": "edfd007ed3ae26083b732b1da7487876d007de7d3b4c0a6c61bb9914e82db729",
+      "modifications": [],
+      "upstreamSha256": "edfd007ed3ae26083b732b1da7487876d007de7d3b4c0a6c61bb9914e82db729"
+    },
+    {
+      "path": "public/assets/emotions/openmoji/1F642.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F642.svg",
+      "sha256": "fb510be7e500cd34bb882ec3126dcde4e91e0deea0f058011d235d7dd1ff76e0",
+      "modifications": [],
+      "upstreamSha256": "fb510be7e500cd34bb882ec3126dcde4e91e0deea0f058011d235d7dd1ff76e0"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f604.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f604.svg",
+      "sha256": "aa02ba3edc78a206b1d9851b16f2d97eb5943c6405fbec0893d52f3d5144aa2b",
+      "modifications": [],
+      "upstreamSha256": "aa02ba3edc78a206b1d9851b16f2d97eb5943c6405fbec0893d52f3d5144aa2b"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f60a.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f60a.svg",
+      "sha256": "bda4e6d76f6b82b87f43755d551b36dd7cfb0d0117fb798435270e7c1127a87e",
+      "modifications": [],
+      "upstreamSha256": "bda4e6d76f6b82b87f43755d551b36dd7cfb0d0117fb798435270e7c1127a87e"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f620.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f620.svg",
+      "sha256": "ab384dce4b5cb724343b2f9dfdd1355fd15a4ace721e9c787812745980a7c9b7",
+      "modifications": [],
+      "upstreamSha256": "ab384dce4b5cb724343b2f9dfdd1355fd15a4ace721e9c787812745980a7c9b7"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f621.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f621.svg",
+      "sha256": "26ff86c1655b7c86feda5a7ce77d55cbebfd346fcc341e8184f702e49eb36314",
+      "modifications": [],
+      "upstreamSha256": "26ff86c1655b7c86feda5a7ce77d55cbebfd346fcc341e8184f702e49eb36314"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f622.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f622.svg",
+      "sha256": "5527ea193cb91de1cea4f3e273eb53b029afc536f1bc79c7ce38e95e658e006e",
+      "modifications": [],
+      "upstreamSha256": "5527ea193cb91de1cea4f3e273eb53b029afc536f1bc79c7ce38e95e658e006e"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f628.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f628.svg",
+      "sha256": "2f26227b248722d35de6e2fb1c4453ccf6d96e3495dfaefcf85349fd86497c02",
+      "modifications": [],
+      "upstreamSha256": "2f26227b248722d35de6e2fb1c4453ccf6d96e3495dfaefcf85349fd86497c02"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f62d.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f62d.svg",
+      "sha256": "d0333b5cb416ad6545055766fc8128566874ab5ead272e5a691a24704048f077",
+      "modifications": [],
+      "upstreamSha256": "d0333b5cb416ad6545055766fc8128566874ab5ead272e5a691a24704048f077"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f631.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f631.svg",
+      "sha256": "c050671286ff22d29215d2ecf081a85337b164bdc007e6d342b47f39ef11a339",
+      "modifications": [],
+      "upstreamSha256": "c050671286ff22d29215d2ecf081a85337b164bdc007e6d342b47f39ef11a339"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f641.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f641.svg",
+      "sha256": "87bcc22d43cfa00bd1cf5e3a35aad79150b4ce804899db3ea93efe57eeb6dbf7",
+      "modifications": [],
+      "upstreamSha256": "87bcc22d43cfa00bd1cf5e3a35aad79150b4ce804899db3ea93efe57eeb6dbf7"
+    },
+    {
+      "path": "public/assets/emotions/twemoji/1f642.svg",
+      "kind": "fetched",
+      "source": "twemoji",
+      "upstreamPath": "assets/svg/1f642.svg",
+      "sha256": "943c44a0f3dc1aba84f5fbe8465baadbb90af66cd7be9f37ca07a39260357ad2",
+      "modifications": [],
+      "upstreamSha256": "943c44a0f3dc1aba84f5fbe8465baadbb90af66cd7be9f37ca07a39260357ad2"
+    },
+    {
+      "path": "public/assets/original/island-scene.svg",
+      "kind": "authored",
+      "source": "starry-isle",
+      "method": "assisted",
+      "sha256": "aedf0ea02f2213952fc31490c77bd452ad0dc918ee179a30c6a607f6486c136b",
+      "title": "海岛夜景",
+      "author": "星屿项目贡献者",
+      "createdAt": "2026-09-10",
+      "note": "开发一期随提交 d1136dc 入库，该提交由项目主与 Claude 共同署名：人提出设计，AI 协助编写矢量代码。2026-09-27 由 src/components/IslandScene.tsx 的内联 SVG 原样抽出为文件，只把 JSX 属性名换回 SVG 写法，图形未改动。"
+    },
+    {
+      "path": "public/assets/original/mascot.svg",
+      "kind": "authored",
+      "source": "starry-isle",
+      "method": "assisted",
+      "sha256": "0a6158e1fed9df1f111d7b4a27908031accba456987e71fcac4fa827b4ab8610",
+      "title": "星灵",
+      "author": "星屿项目贡献者",
+      "createdAt": "2026-09-10",
+      "note": "开发一期随提交 d1136dc 入库，该提交由项目主与 Claude 共同署名：人提出设计，AI 协助编写矢量代码。2026-09-27 由 src/components/Mascot.tsx 的内联 SVG 原样抽出为文件，只把 JSX 属性名换回 SVG 写法，图形未改动。"
+    },
+    {
+      "path": "public/assets/scenes/openmoji/1F366.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F366.svg",
+      "sha256": "d5898f0476e407f5c5c3c839eeb77dae7ceac08780706bddd708508b560bb99f",
+      "modifications": [],
+      "upstreamSha256": "d5898f0476e407f5c5c3c839eeb77dae7ceac08780706bddd708508b560bb99f"
+    },
+    {
+      "path": "public/assets/scenes/openmoji/1F381.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F381.svg",
+      "sha256": "3153933c75f6195a64d67041ecd76b7ec7f391fd7bf2552709d6b6cf59dbe2dd",
+      "modifications": [],
+      "upstreamSha256": "3153933c75f6195a64d67041ecd76b7ec7f391fd7bf2552709d6b6cf59dbe2dd"
+    },
+    {
+      "path": "public/assets/scenes/openmoji/1F9F1.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/1F9F1.svg",
+      "sha256": "e3530593fb4c69cd34224c860ea01da94c0430ac4361517377633c59947ea06c",
+      "modifications": [],
+      "upstreamSha256": "e3530593fb4c69cd34224c860ea01da94c0430ac4361517377633c59947ea06c"
+    },
+    {
+      "path": "public/assets/scenes/openmoji/26C8.svg",
+      "kind": "fetched",
+      "source": "openmoji",
+      "upstreamPath": "color/svg/26C8.svg",
+      "sha256": "3253bb7e1b6bcb1170538af6bb79b95fe701f426accf93c2ab087f2c7699e851",
+      "modifications": [],
+      "upstreamSha256": "3253bb7e1b6bcb1170538af6bb79b95fe701f426accf93c2ab087f2c7699e851"
+    }
+  ]
+}

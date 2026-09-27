@@ -6,10 +6,14 @@ import type { CoPlayRound, Emotion, EmotionVariant, QuestionRound, Round, SceneR
  *
  *   1-3   认表情 · 2 选 1 · 夸张强度 · 单一画风     ← 难度递进第一档（研 03：夸张起步）
  *   4     屏外共玩：家长做表情，孩子来认            ← 泛化机制（ADR-0002）
- *   5-6   认表情 · 3 选 1 · 中强度 · 双画风混出
- *   7-8   认表情 · 4 选 1 · 含低强度 · 双画风混出   ← 完成第 8 回合后触发"结束预告"
+ *   5-6   认表情 · 3 选 1 · 高/中强度 · 双画风混出
+ *   7-8   认表情 · 4 选 1 · 全部可用强度 · 双画风混出   ← 完成第 8 回合后触发"结束预告"
  *   9     屏外共玩（第二次）
- *   10    情境题（"卡通→真人→情境"第三档雏形）
+ *   10    情境题（看情境想感受，ADR-0008 决定 7）
+ *
+ * 题库只收"四种情绪都有卡"的画风×强度组合（balancedPool）：否则强度或画风本身就会泄题——
+ * 例如低强度档只有高兴、难过有卡时，一出低强度卡答案就只剩两个（ADR-0008 决定 6）。
+ * 一期生气、害怕缺低强度档，所以第 7-8 回合暂不出低强度，待素材补齐后自动放开。
  *
  * 情境题是无错题：情绪认知里"情境→感受"没有唯一正确答案（同一情境不同孩子
  * 感受可以不同），任何选择都完成回合，反馈区分"常见感受/不同感受"两种话术，
@@ -40,6 +44,21 @@ function coPlayOptions(): EmotionVariant[] {
   return shuffle(EMOTIONS.map((e) => pick(e, 'high', 'openmoji')));
 }
 
+/**
+ * 只保留"四种情绪都有卡"的 画风×强度 组合（ADR-0008 决定 6）。
+ * 缺了某种情绪的组合整组剔除，而不是只剔除缺的那张——留下的卡才不会暗示答案。
+ */
+export function balancedPool(pool: EmotionVariant[]): EmotionVariant[] {
+  const key = (v: EmotionVariant) => `${v.source}/${v.intensity}`;
+  const covered = new Map<string, Set<Emotion>>();
+  for (const v of pool) {
+    const set = covered.get(key(v)) ?? new Set<Emotion>();
+    set.add(v.emotion);
+    covered.set(key(v), set);
+  }
+  return pool.filter((v) => covered.get(key(v))!.size === EMOTIONS.length);
+}
+
 function makeQuestion(
   target: Emotion,
   optionCount: number,
@@ -68,11 +87,11 @@ function makeScene(): SceneRound {
 }
 
 export function makeSession(): Round[] {
-  const highOpenmoji = ALL_VARIANTS.filter(
-    (v) => v.intensity === 'high' && v.source === 'openmoji',
+  const highOpenmoji = balancedPool(
+    ALL_VARIANTS.filter((v) => v.intensity === 'high' && v.source === 'openmoji'),
   );
-  const midAll = ALL_VARIANTS.filter((v) => v.intensity !== 'low');
-  const all = ALL_VARIANTS;
+  const midAll = balancedPool(ALL_VARIANTS.filter((v) => v.intensity !== 'low'));
+  const all = balancedPool(ALL_VARIANTS);
 
   // 前三题目标情绪顺序：从"高兴"开始（识别难度最低，研 03 §4.1），其余打乱
   const firstTargets: Emotion[] = ['happy', ...shuffle(['sad', 'angry', 'scared'] as Emotion[])];

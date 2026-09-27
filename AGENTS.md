@@ -8,17 +8,18 @@
 
 输出与现有 ADR 冲突时明说，不静默覆盖。
 
-## 三条红线
+## 四条红线
 
 动对外文案、玩法、素材或依赖之前，读 `CONTRIBUTING.md` 的红线节：
 
 - **措辞**：对外文案过禁语清单（`npm run check:words` 强制，依据 `docs/research/04`）；免责声明的单一来源是 `src/disclaimer.json`。
 - **零收集**：无统计/上报/广告 SDK、无账号、运行时除自身静态资源外零网络请求；新增运行时依赖默认拒绝。
 - **设计**：每个玩法 ≥1 项泛化机制；回合有上限、有结束预告与收尾仪式；不做签到/连击/排行榜；美术年龄中性。
+- **素材溯源**：`public/assets/` 下每个文件都登记在溯源清单 `src/asset-manifest.json`（来源与钉住的 commit、许可、哈希、修改记录），`npm run check:assets` 强制。改素材先改清单；CREDITS.md 与应用内署名一律由 `npm run assets:credits` 从清单生成。AI 生成素材的准入规则见 ADR-0008。
 
 ## 完成判据
 
-`npm run check` 全绿（禁语 + 免责声明同文 + 类型 + 逻辑不变量）；改了构建或 CI 则 `npm run build` 也要过。
+`npm run check` 全绿（禁语 + 免责声明同文 + 素材溯源 + 类型 + 逻辑不变量）；改了构建或 CI 则 `npm run build` 也要过。
 
 **验收标准是准绳**——允许顺延，不允许降验收（`docs/planning/`）。
 

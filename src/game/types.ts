@@ -6,6 +6,12 @@ export type Intensity = 'high' | 'mid' | 'low';
 
 export type AssetSource = 'openmoji' | 'twemoji';
 
+/**
+ * 效度验证状态（ADR-0008 决定 8）：validated = 过了成人评分；pending = 待验证（仅限上游 emoji 的过渡期）；
+ * failed = 不达标，移出题库。自制与 AI 素材未经验证不得进语义表，由 check:assets 把关。
+ */
+export type ValidationStatus = 'validated' | 'pending' | 'failed';
+
 /** 一张具体的表情卡素材 */
 export interface EmotionVariant {
   emotion: Emotion;
@@ -18,6 +24,7 @@ export interface EmotionVariant {
    * 既不给读屏用户泄题，又本身就是"看线索"的教学引导。
    */
   cues: string;
+  validation: ValidationStatus;
 }
 
 /** 认表情题：从若干表情卡中点出目标情绪 */

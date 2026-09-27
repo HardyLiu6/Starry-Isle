@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { ALL_VARIANTS, pick } from './emotions';
-import { ENDING_PREVIEW_AFTER, TOTAL_ROUNDS, makeSession } from './rounds';
-import type { CoPlayRound, Emotion } from './types';
+import manifest from '../asset-manifest.json';
+import { ALL_VARIANTS, SCENES, pick } from './emotions';
+import { ENDING_PREVIEW_AFTER, TOTAL_ROUNDS, balancedPool, makeSession } from './rounds';
+import type { CoPlayRound, Emotion, EmotionVariant } from './types';
 
 /**
  * 这些不变量坏了是"静默教错"（选项里出现两张同情绪卡、目标不在场……），
@@ -107,15 +108,18 @@ describe('选项不变量', () => {
 });
 
 describe('素材映射表', () => {
-  it('10 变体 × 2 画风 = 20 张表情卡，路径与来源目录一致', () => {
+  const registered = new Set(manifest.assets.map((a) => a.path));
+
+  it('20 张表情卡与 4 张情境图都登记在溯源清单里，画风目录与来源一致（ADR-0007）', () => {
     expect(ALL_VARIANTS).toHaveLength(20);
     for (const v of ALL_VARIANTS) {
-      expect(v.src).toMatch(
-        v.source === 'openmoji'
-          ? /^assets\/emotions\/openmoji\/[0-9A-F]+\.svg$/
-          : /^assets\/emotions\/twemoji\/[0-9a-f]+\.svg$/,
-      );
+      expect(registered.has(`public/${v.src}`)).toBe(true);
+      expect(v.src.startsWith(`assets/emotions/${v.source}/`)).toBe(true);
       expect(v.cues.length).toBeGreaterThan(0);
+    }
+    expect(SCENES).toHaveLength(4);
+    for (const s of SCENES) {
+      expect(registered.has(`public/${s.sceneSrc}`)).toBe(true);
     }
   });
 
@@ -123,5 +127,42 @@ describe('素材映射表', () => {
     for (const e of EMOTIONS) {
       expect(() => pick(e, 'high', 'openmoji')).not.toThrow();
     }
+  });
+});
+
+describe('强度与画风不泄题（ADR-0008 决定 6）', () => {
+  it('认表情题的每张选项卡，其画风×强度组合四种情绪都有卡', () => {
+    for (let r = 0; r < RUNS; r++) {
+      for (const round of makeSession()) {
+        if (round.kind !== 'question') continue;
+        for (const o of round.options) {
+          for (const e of EMOTIONS) {
+            const has = ALL_VARIANTS.some(
+              (v) => v.emotion === e && v.source === o.source && v.intensity === o.intensity,
+            );
+            expect(has, `${o.source}/${o.intensity} 缺「${e}」却进了题库`).toBe(true);
+          }
+        }
+      }
+    }
+  });
+
+  it('balancedPool 整组剔除缺情绪的组合：低强度只有高兴、难过时，低强度一张不留', () => {
+    const card = (emotion: Emotion, intensity: EmotionVariant['intensity']): EmotionVariant => ({
+      emotion,
+      intensity,
+      source: 'openmoji',
+      src: `assets/emotions/openmoji/${emotion}-${intensity}.svg`,
+      cues: '测试',
+      validation: 'pending',
+    });
+    const pool = [
+      ...EMOTIONS.map((e) => card(e, 'high')),
+      card('happy', 'low'),
+      card('sad', 'low'),
+    ];
+    const kept = balancedPool(pool);
+    expect(kept).toHaveLength(4);
+    expect(kept.every((v) => v.intensity === 'high')).toBe(true);
   });
 });
