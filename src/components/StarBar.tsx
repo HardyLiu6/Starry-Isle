@@ -1,5 +1,5 @@
 /**
- * 星形是界面代码，不是素材：亮灭是交互状态，随代码按 MIT（ADR-0007 决定 7）。
+ * 星形是界面图形，随前端代码按 MIT，不属于素材（ADR-0007 决定 7）。
  */
 function Star({ lit }: { lit: boolean }) {
   return (

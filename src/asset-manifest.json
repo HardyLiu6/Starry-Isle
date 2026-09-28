@@ -50,7 +50,7 @@
       ]
     },
     "starry-isle": {
-      "name": "星屿自制素材",
+      "name": "星屿自制内容素材",
       "homepage": "https://github.com/HardyLiu6/Starry-Isle",
       "license": "CC-BY-SA-4.0",
       "attribution": "星屿项目贡献者",
@@ -248,28 +248,6 @@
       "sha256": "943c44a0f3dc1aba84f5fbe8465baadbb90af66cd7be9f37ca07a39260357ad2",
       "modifications": [],
       "upstreamSha256": "943c44a0f3dc1aba84f5fbe8465baadbb90af66cd7be9f37ca07a39260357ad2"
-    },
-    {
-      "path": "public/assets/original/island-scene.svg",
-      "kind": "authored",
-      "source": "starry-isle",
-      "method": "assisted",
-      "sha256": "aedf0ea02f2213952fc31490c77bd452ad0dc918ee179a30c6a607f6486c136b",
-      "title": "海岛夜景",
-      "author": "星屿项目贡献者",
-      "createdAt": "2026-09-10",
-      "note": "开发一期随提交 d1136dc 入库，该提交由项目主与 Claude 共同署名：人提出设计，AI 协助编写矢量代码。2026-09-27 由 src/components/IslandScene.tsx 的内联 SVG 原样抽出为文件，只把 JSX 属性名换回 SVG 写法，图形未改动。"
-    },
-    {
-      "path": "public/assets/original/mascot.svg",
-      "kind": "authored",
-      "source": "starry-isle",
-      "method": "assisted",
-      "sha256": "0a6158e1fed9df1f111d7b4a27908031accba456987e71fcac4fa827b4ab8610",
-      "title": "星灵",
-      "author": "星屿项目贡献者",
-      "createdAt": "2026-09-10",
-      "note": "开发一期随提交 d1136dc 入库，该提交由项目主与 Claude 共同署名：人提出设计，AI 协助编写矢量代码。2026-09-27 由 src/components/Mascot.tsx 的内联 SVG 原样抽出为文件，只把 JSX 属性名换回 SVG 写法，图形未改动。"
     },
     {
       "path": "public/assets/scenes/openmoji/1F366.svg",

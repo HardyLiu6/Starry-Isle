@@ -3,6 +3,8 @@
 
 星屿的代码与素材分开授权：代码按 MIT（见 `LICENSE`），素材按下列各来源的原始许可。每个素材文件的来源、版本、许可、哈希与修改记录登记在溯源清单 `src/asset-manifest.json`，由 `npm run check` 机器校验（ADR-0007）。应用内"给家长"页的"素材署名"一节与本文件出自同一份清单。
 
+星灵、海岛、星星进度等界面图形由星屿项目自己绘制，是前端代码的一部分，随代码按 MIT 授权，不在本文件列出（ADR-0007 决定 7）。
+
 **当前状态：本仓库不含任何 NC（非商业）素材**，全部素材均可商业再分发。
 
 本仓库目前不含 AI 生成的素材。
@@ -25,10 +27,3 @@
 - 许可：[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - 许可与署名要求出处：https://github.com/jdecked/twemoji/blob/b6b55fef1e8636b540a6d016a4729ca8cdf2e60b/LICENSE-GRAPHICS ；https://github.com/jdecked/twemoji/blob/b6b55fef1e8636b540a6d016a4729ca8cdf2e60b/README.md ；https://github.com/jdecked/twemoji/blob/b6b55fef1e8636b540a6d016a4729ca8cdf2e60b/LICENSE
 - 修改：未作修改，全部文件与上游钉住版本逐字节一致。
-
-## 星屿自制素材
-
-- 文件：`public/assets/original/`（2 个）
-- 内容：星灵、海岛夜景
-- 署名：星屿项目贡献者
-- 许可：[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)

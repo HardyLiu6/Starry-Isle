@@ -15,7 +15,7 @@
 - **措辞**：对外文案过禁语清单（`npm run check:words` 强制，依据 `docs/research/04`）；免责声明的单一来源是 `src/disclaimer.json`。
 - **零收集**：无统计/上报/广告 SDK、无账号、运行时除自身静态资源外零网络请求；新增运行时依赖默认拒绝。
 - **设计**：每个玩法 ≥1 项泛化机制；回合有上限、有结束预告与收尾仪式；不做签到/连击/排行榜；美术年龄中性。
-- **素材溯源**：`public/assets/` 下每个文件都登记在溯源清单 `src/asset-manifest.json`（来源与钉住的 commit、许可、哈希、修改记录），`npm run check:assets` 强制。改素材先改清单；CREDITS.md 与应用内署名一律由 `npm run assets:credits` 从清单生成。AI 生成素材的准入规则见 ADR-0008。
+- **素材溯源**：`public/assets/` 下每个文件都登记在溯源清单 `src/asset-manifest.json`（来源与钉住的 commit、许可、哈希、修改记录），`npm run check:assets` 强制。改素材先改清单；CREDITS.md 与应用内署名一律由 `npm run assets:credits` 从清单生成。项目自绘的界面图形（星灵、海岛、图标）是前端代码，以内联 SVG 写在组件里、按 MIT；第三方图形一律按素材登记。AI 生成素材的准入规则见 ADR-0008。
 
 ## 完成判据
 

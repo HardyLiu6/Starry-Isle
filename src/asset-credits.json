@@ -31,22 +31,6 @@
       "version": "v17.0.3",
       "modified": false,
       "ai": false
-    },
-    {
-      "id": "starry-isle",
-      "name": "星屿自制素材",
-      "attribution": "星屿项目贡献者",
-      "license": {
-        "id": "CC-BY-SA-4.0",
-        "title": "CC BY-SA 4.0",
-        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
-      },
-      "count": 2,
-      "titles": [
-        "星灵",
-        "海岛夜景"
-      ],
-      "ai": false
     }
   ]
 }

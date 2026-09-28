@@ -137,6 +137,8 @@ export function generateCredits(manifest) {
     '',
     '星屿的代码与素材分开授权：代码按 MIT（见 `LICENSE`），素材按下列各来源的原始许可。每个素材文件的来源、版本、许可、哈希与修改记录登记在溯源清单 `src/asset-manifest.json`，由 `npm run check` 机器校验（ADR-0007）。应用内"给家长"页的"素材署名"一节与本文件出自同一份清单。',
     '',
+    '星灵、海岛、星星进度等界面图形由星屿项目自己绘制，是前端代码的一部分，随代码按 MIT 授权，不在本文件列出（ADR-0007 决定 7）。',
+    '',
     hasNc
       ? '**当前状态：本仓库含 NC（非商业）素材**，集中在 `public/assets/nc/`，含这些素材的整体分发不得用于商业用途（ADR-0006 决定 10）。'
       : '**当前状态：本仓库不含任何 NC（非商业）素材**，全部素材均可商业再分发。',
@@ -511,9 +513,21 @@ function selfTest(base) {
       recredit(x);
     }],
     ['自制素材未验证就进语义表', '未经效度验证', (x) => {
-      const orig = x.manifest.assets.find((a) => a.kind === 'authored');
+      const buf = Buffer.from('<svg/>');
+      const path = `${ASSET_ROOT}/original/sample.svg`;
+      x.files.set(path, buf);
+      x.manifest.assets.push({
+        path,
+        kind: 'authored',
+        source: 'starry-isle',
+        method: 'manual',
+        sha256: sha256(buf),
+        author: '测试',
+        createdAt: '2026-09-28',
+      });
+      recredit(x);
       x.catalog.cards.push({
-        path: orig.path.slice('public/'.length),
+        path: path.slice('public/'.length),
         emotion: 'happy',
         intensity: 'high',
         cues: '测试',
